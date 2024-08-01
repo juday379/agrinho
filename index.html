@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Clique com Imagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .score {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #clickable-area {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clique no pikachupara ganhar conquistas</h1>
+        <p class="score">Pontuação: <span id="score">0</span></p>
+        <!-- Área clicável com a imagem Pikachu -->
+        <img id="clickable-area" src="pikachu.jpg" alt="Pikachu" onclick="incrementScore()">
+    </div>
+
+    <script>
+        // Variável para armazenar a pontuação
+        let score = 0;
+
+        // Função para incrementar a pontuação e verificar notificações
+        function incrementScore() {
+            score++;
+            document.getElementById('score').textContent = score;
+
+            // Verificar se a pontuação atingiu múltiplos de 100
+            if (score % 100 === 0) {
+                showNotification(score);
+            }
+        }
+
+        // Função para exibir a notificação com base na pontuação alcançada
+        function showNotification(score) {
+            alert(`Parabéns! Você alcançou ${score} pontos.`);
+        }
+    </script>
+</body>
+</html>
